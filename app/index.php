@@ -60,6 +60,12 @@ if(!$_SESSION['nama']){
         else if($_GET['page']=='edit-penilaian'){
           include('edit/edit_penilaian.php');
       }
+        else if($_GET['page']=='hasil_normalisasi'){
+          include('hasil_normalisasi.php');
+      }
+        else if($_GET['page']=='hasil_preferensi'){
+          include('hasil_preferensi.php');
+      }
       else if($_GET['page']=='perhitungan'){
         include('perhitungan.php');
       }

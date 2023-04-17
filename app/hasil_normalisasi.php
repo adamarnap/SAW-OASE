@@ -12,12 +12,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Perhitungan</h1>
+        <h1>Normalisasi</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="index.php?beranda.php">Home</a></li>
-          <li class="breadcrumb-item active">Perhitungan</li>
+          <li class="breadcrumb-item active">Normalisasi</li>
         </ol>
       </div>
     </div>
@@ -34,7 +34,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col">
-                <h3 class="card-title font-weight-bold mb-2">Tabel Matrix / Perhitungan</h3>
+                <h3 class="card-title font-weight-bold mb-2">Tabel Matrix / Normalisasi</h3>
               </div>
             </div>
             <div class="row">
@@ -42,43 +42,42 @@
                 <table class="table table-bordered" id="example2">
                   <thead>
                     <tr class="text-center">
-                      <th>No</th>
-                      <th>Karyawan</th>
-                      <th>K1</th>
-                      <th>K2</th>
-                      <th>K3</th>
-                      <th>K4</th>
-                      <th>K5</th>
+                      <th>Kriteria</th>
+                      <th>Alternatif 1</th>
+                      <th>Alternatif 2</th>
+                      <th>Alternatif 3</th>
+                      <th>Alternatif 4</th>
+                      <th>Alternatif 5</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php  
-                $no = 0;
-                  $query = mysqli_query($koneksi,"SELECT * FROM tb_penilaian");
-                  while($pgw = mysqli_fetch_array($query)){
-                    $no++
-                ?>
+                      $no = 1;
+                      foreach ($hasilNormalisasi as $data) {
+                    ?>
                       <tr>
-                      <td width='5%'><?php echo $no;?></td>
-                        <td class="text-center"><?= $pgw['alternatif']; ?></td>
-                        <td class="text-center"><?= $pgw['kemampuan_kerjasama']; ?></td>
-                        <td class="text-center"><?= $pgw['presensi']; ?></td>
-                        <td class="text-center"><?= $pgw['kedisiplinan']; ?></td>
-                        <td class="text-center"><?= $pgw['penjualan']; ?></td>
-                        <td class="text-center"><?= $pgw['lembur']; ?></td>
+                        <td class="font-weight-bold">K<?= $no; ?></td>
+                        <td><?= $data['K1'];?></td>
+                        <td><?= $data['K2'];?></td>
+                        <td><?= $data['K3'];?></td>
+                        <td><?= $data['K4'];?></td>
+                        <td><?= $data['K5'];?></td>
                       </tr>
-                    <?php  
+                    <?php 
+                        $no++; 
                       }
                     ?>
                   </tbody>
+
+
                 </table>
               </div>
             </div>
             <div class="row text-right mt-3">
               <div class="col">
-                <form method="post">
-                  <button type="submit" class="btn btn-primary" name="hitung"><i class="far fa-hourglass"></i> Hitung</button>
-                </form>
+              <a href="index.php?page=hasil_preferensi">
+                  <button class="btn btn-primary"><i class="far fa-hourglass"></i> Lihat Hasil Preferensi</button>
+                    </a>
               </div>    
             </div>
           </div>

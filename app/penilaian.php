@@ -20,6 +20,16 @@
 </section>
 
 <!-- Main content -->
+<?php
+global $koneksi;
+
+$sql = "SELECT COUNT(id_penilaian) FROM tb_penilaian";
+$dataAlter = mysqli_query($koneksi, $sql);
+$data = mysqli_fetch_assoc($dataAlter);
+
+if($data['COUNT(id_penilaian)']<5){
+?>
+
 <section class="content">
   <div class="container-fluid">
     <!-- SELECT2 EXAMPLE -->
@@ -106,6 +116,23 @@
   </div>
   <!-- /.container-fluid -->
 </section>
+<?}else{?>
+  <section class="content">
+  <div class="container-fluid">
+    <!-- SELECT2 EXAMPLE -->
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title" style='color:red;'><b>TIDAK BISA INPUT PENILAIAN, DATA SUDAH MELEBIHI BATAS MAX 5 PENILAIAN !!!</b></h3>
+      </div>
+      <!-- /.card-header -->
+     
+      <!-- /.card-body -->
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<?php }?>
+
 
 <section class="content">
   <div class="container-fluid">
@@ -132,7 +159,7 @@
                 $no = 0;
                   $query = mysqli_query($koneksi,"SELECT * FROM tb_penilaian");
                   while($pgw = mysqli_fetch_array($query)){
-                    $no++
+                    $no++;
                 ?>
                   <tr class="text-center">
                   <td width='5%'><?php echo $no;?></td>
