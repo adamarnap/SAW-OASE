@@ -42,21 +42,27 @@
                 <table class="table table-bordered" id="example2">
                   <thead>
                     <tr class="text-center">
-                      <th>Kriteria</th>
-                      <th>Alternatif 1</th>
-                      <th>Alternatif 2</th>
-                      <th>Alternatif 3</th>
-                      <th>Alternatif 4</th>
-                      <th>Alternatif 5</th>
+                      <th>Karyawan</th>
+                      
+                      <?php  
+                        foreach ($kriteria as $key => $value) {
+                      ?>
+
+                          <th><?= $value['kriteria'] ?></th>
+                      
+                      <?php 
+                        }
+                      ?>
                     </tr>
+                    
                   </thead>
                   <tbody>
                   <?php  
                       $no = 1;
-                      foreach ($hasilNormalisasi as $data) {
+                      foreach ($hasilNormalisasi as $key => $data) {
                     ?>
                       <tr>
-                        <td class="font-weight-bold">K<?= $no; ?></td>
+                        <td class="font-weight-bold"><?= $alternatif[$key]['nama'] ?></td>
                         <td><?= $data['K1'];?></td>
                         <td><?= $data['K2'];?></td>
                         <td><?= $data['K3'];?></td>

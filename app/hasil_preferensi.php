@@ -75,7 +75,7 @@
             </div>
             <div class="row text-right mt-3">
               <div class="col">
-              <form method="post>
+              <form method="POST">
                 <a href="pages/perhitungan/Cetak_Hasil.php" target="_blank">
                       <button type="button" class="btn btn-primary"><i class="far fa-file-pdf"></i> Cetak Hasil</button>
                     </a>
